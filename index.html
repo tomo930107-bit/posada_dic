@@ -131,7 +131,7 @@ h1 .i {
   text-shadow: 0 0 28px rgba(244,195,90,.35);
 }
 .lema {
-  max-width: 34ch; margin: 6px 0 0;
+  max-width: 40ch; margin: 6px 0 0;
   font-size: 19px; color: var(--suave);
   text-wrap: balance;
 }
@@ -144,6 +144,27 @@ h1 .i {
   font-variant-numeric: tabular-nums;
 }
 .cuenta .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--vela); box-shadow: 0 0 10px var(--vela); }
+
+/* ---------- Elenco navideño ---------- */
+.elenco { margin: -12px 0 -18px; }
+.elenco svg { display: block; width: 100%; height: auto; overflow: visible; }
+.elenco .pj {
+  transform-box: fill-box; transform-origin: 50% 100%;
+  animation: brinco 2.6s ease-in-out infinite;
+}
+.elenco .saludo, .elenco .saludo2 {
+  transform-box: fill-box; transform-origin: 0% 100%;
+  animation: saludo 1.4s ease-in-out infinite;
+}
+.elenco .saludo2 { animation-delay: -.7s; }
+@keyframes brinco {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes saludo {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-16deg); }
+}
 
 /* ---------- Fecha destacada ---------- */
 .fecha {
@@ -160,11 +181,11 @@ h1 .i {
 .calendario .mes { background: var(--nochebuena); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .14em; padding: 5px 0; }
 .calendario .dia { font-family: var(--display); font-weight: 800; font-size: 46px; line-height: 1.1; padding-top: 2px; }
 .calendario .sem { font-size: 12px; font-weight: 600; letter-spacing: .1em; padding-bottom: 8px; color: #5b6b62; }
-.fecha h2 { margin: 0 0 2px; font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.15; text-wrap: balance; }
+.fecha h2 { margin: 0 0 6px; font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.15; text-wrap: balance; }
 .fecha p { margin: 0 0 12px; color: var(--suave); }
 
 /* ---------- Detalles ---------- */
-.detalles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.detalles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .dato {
   padding: 20px; border-radius: 18px;
   background: rgba(251,243,228,.05);
@@ -288,7 +309,7 @@ footer strong { color: var(--vela); font-weight: 600; }
   .picado svg { width: 56px; height: 70px; margin: 0 2px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .picado svg { animation: none; }
+  .picado svg, .elenco .pj, .elenco .saludo, .elenco .saludo2 { animation: none; }
 }
 </style>
 </head>
@@ -301,7 +322,7 @@ footer strong { color: var(--vela); font-weight: 600; }
   <header class="portada">
     <div class="antetitulo">Te invitamos a la</div>
     <h1><span class="p">Posada</span><span class="i">ISSSTE</span><span class="a">Áreas Críticas</span></h1>
-    <p class="lema">Vamos a pedir posada, romper la piñata y brindar con ponche por todo lo que sacamos adelante este año.</p>
+    <p class="lema">Un año de guardias, códigos y turnos sin pausa merece celebrarse en equipo. Brindemos juntos… ¡y vamos por esas bases en el 2027!</p>
     <div class="cuenta" id="cuenta"><span class="punto"></span><span id="cuentaTexto">Viernes 11 de diciembre</span></div>
   </header>
 
@@ -434,7 +455,6 @@ footer strong { color: var(--vela); font-weight: 600; }
     </div>
     <div>
       <h2>Viernes 11 de diciembre, 5:00 de la tarde</h2>
-      <p>Llega con tiempo para la letanía y la piñata.</p>
       <a class="boton-sec" id="btnCalendario" href="#" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v4M10 16h4"/></svg>
         Agregar a mi calendario
@@ -451,11 +471,6 @@ footer strong { color: var(--vela); font-weight: 600; }
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
         Cómo llegar
       </a>
-    </div>
-    <div class="dato">
-      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/></svg>
-      <h3>Acompañantes</h3>
-      <p>Si vas con acompañante, indícalo al confirmar para calcular comida y lugares.</p>
     </div>
     <div class="dato">
       <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg>
@@ -546,7 +561,7 @@ footer strong { color: var(--vela); font-weight: 600; }
    ========================================================= */
 const CONFIG = {
   // Pega aquí la URL de tu Apps Script (termina en /exec). Mientras esté vacía, el formulario funciona en modo de prueba.
-  SCRIPT_URL: "https://script.google.com/macros/library/d/17tepjUF4BRFAVxjn6Y8SZqXQsXpmSaUjSbkPsc3ZcaVN2y75TENN7snG/1",
+  SCRIPT_URL: "",
   // Domicilio que verán los invitados.
   DIRECCION: "Isla Izaro 2870",
   // Opcional: link de Google Maps (opcional, para que el botón lleve exacto a la casa). Si lo dejas vacío, se busca la dirección en Guadalajara.
