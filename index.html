@@ -504,11 +504,11 @@ footer strong { color: var(--vela); font-weight: 600; }
         </div>
 
         <div class="campo" id="campoAcomp">
-          <div class="etq" id="etqAcomp">¿Cuántos acompañantes llevas?</div>
-          <div class="ayuda">Sin contarte a ti. Si vas solo, déjalo en 0.</div>
-          <div class="contador" role="group" aria-labelledby="etqAcomp">
+          <div class="etq" id="etqAcomp">Acompañantes</div>
+          <div class="ayuda" id="ayudaAcomp">Si vas a llevar algún acompañante, favor de colocarlo aquí.</div>
+          <div class="contador" role="group" aria-labelledby="etqAcomp" aria-describedby="ayudaAcomp">
             <button type="button" id="menos" aria-label="Quitar un acompañante">−</button>
-            <output id="acompanantes" aria-live="polite">0</output>
+            <output id="numAcomp" aria-live="polite">0</output>
             <button type="button" id="mas" aria-label="Agregar un acompañante">+</button>
           </div>
         </div>
@@ -561,15 +561,14 @@ footer strong { color: var(--vela); font-weight: 600; }
    ========================================================= */
 const CONFIG = {
   // Pega aquí la URL de tu Apps Script (termina en /exec). Mientras esté vacía, el formulario funciona en modo de prueba.
-  SCRIPT_URL: "https://script.google.com/macros/library/d/17tepjUF4BRFAVxjn6Y8SZqXQsXpmSaUjSbkPsc3ZcaVN2y75TENN7snG/1",
+  SCRIPT_URL: "https://script.google.com/macros/library/d/17tepjUF4BRFAVxjn6Y8SZqXQsXpmSaUjSbkPsc3ZcaVN2y75TENN7snG/2",
   // Domicilio que verán los invitados.
   DIRECCION: "Isla Izaro 2870",
   // Opcional: link de Google Maps (opcional, para que el botón lleve exacto a la casa). Si lo dejas vacío, se busca la dirección en Guadalajara.
-  MAPS_URL: "https://maps.app.goo.gl/emXj7PGcQNgwKcqGA",
+  MAPS_URL: "https://maps.app.goo.gl/N22ZeD19sArFkckF9",
   // Fecha y hora del evento (hora del centro de México).
   INICIO: "2026-12-11T17:00:00-06:00",
-  FIN:    "2026-12-11T22:00:00-06:00",
-  MAX_ACOMPANANTES: 2
+  FIN:    "2026-12-11T22:00:00-06:00"
 };
 
 /* ---------- Datos del evento ---------- */
@@ -609,16 +608,23 @@ function cuentaRegresiva() {
 cuentaRegresiva();
 
 /* ---------- Formulario ---------- */
-let acomp = 0;
-const out = $("acompanantes");
-function pintarContador() {
-  out.textContent = acomp;
-  $("menos").disabled = acomp <= 0;
-  $("mas").disabled = acomp >= CONFIG.MAX_ACOMPANANTES;
+const MAX_ACOMP = 2;
+let acompSel = 0;
+function numAcomp() { return asiste() ? acompSel : 0; }
+function pintarAcomp() {
+  $("numAcomp").textContent = acompSel;
+  $("menos").disabled = acompSel <= 0;
+  $("mas").disabled = acompSel >= MAX_ACOMP;
 }
-$("menos").addEventListener("click", () => { acomp = Math.max(0, acomp - 1); pintarContador(); });
-$("mas").addEventListener("click", () => { acomp = Math.min(CONFIG.MAX_ACOMPANANTES, acomp + 1); pintarContador(); });
-pintarContador();
+$("mas").addEventListener("click", () => {
+  if (acompSel >= MAX_ACOMP) return;
+  acompSel++; pintarAcomp();
+});
+$("menos").addEventListener("click", () => {
+  if (acompSel <= 0) return;
+  acompSel--; pintarAcomp();
+});
+pintarAcomp();
 
 function asiste() { return document.querySelector('input[name="asistencia"]:checked').value === "si"; }
 function pintarAsistencia() {
@@ -657,10 +663,11 @@ $("formRsvp").addEventListener("submit", async (e) => {
     return;
   }
   const si = asiste();
+  const n = numAcomp();
   const datos = new URLSearchParams({
     nombre,
     asistencia: si ? "si" : "no",
-    acompanantes: si ? String(acomp) : "0",
+    acompanantes: String(n),
     lleva: si ? $("lleva").value.trim() : "",
     mensaje: $("mensaje").value.trim(),
     website: $("website").value
@@ -686,9 +693,8 @@ $("formRsvp").addEventListener("submit", async (e) => {
 
   const nom = primerNombre(nombre);
   if (si) {
-    const total = 1 + acomp;
     $("listoTitulo").textContent = "¡Nos vemos, " + nom + "!";
-    $("listoTexto").textContent = "Tu asistencia quedó confirmada" + (acomp ? " con " + acomp + (acomp === 1 ? " acompañante" : " acompañantes") + " (" + total + " personas en total)" : "") + ". Te esperamos el viernes 11 de diciembre a las 5:00 pm.";
+    $("listoTexto").textContent = "Tu asistencia quedó confirmada" + (n ? " con " + n + (n === 1 ? " acompañante" : " acompañantes") : "") + ". Te esperamos el viernes 11 de diciembre a las 5:00 pm.";
     $("btnCalendario2").classList.remove("oculto");
   } else {
     $("listoTitulo").textContent = "Gracias por avisar, " + nom;
