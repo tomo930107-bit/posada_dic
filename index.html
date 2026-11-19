@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Posada ISSSTE 2026</title>
+<meta name="description" content="Viernes 11 de diciembre, 5:00 pm, en Isla Izaro 2870. Confirma tu asistencia aquí.">
+<meta name="theme-color" content="#10261f">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Vista previa al compartir por WhatsApp. og:image debe ser la URL COMPLETA de og-image.png ya publicada. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Posada ISSSTE 2026 🎄">
+<meta property="og:description" content="Viernes 11 de diciembre, 5:00 pm, en Isla Izaro 2870. Confirma tu asistencia aquí.">
+<meta property="og:image" content="https://tomo930107-bit.github.io/posada-issste/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..900,100;1,9..144,400..900,100&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* Plan: noche de posada — fondo pino profundo, papel picado colgando arriba,
+   luz de vela dorada como acento, rojo nochebuena para acciones.
+   Layout: portada centrada, detalles en rejilla de 2 columnas, tarjeta de confirmación clara. */
+:root {
+  --noche: #10261f;
+  --noche-2: #183a2f;
+  --vela: #f4c35a;
+  --nochebuena: #d8373a;
+  --rosa: #ff5fa2;
+  --papel: #fbf3e4;
+  --tinta: #1d2a24;
+  --suave: #b8cbbf;
+  --linea: rgba(244, 195, 90, .28);
+
+  --display: "Fraunces", "Georgia", "Times New Roman", serif;
+  --body: "Outfit", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(244,195,90,.16), transparent 60%),
+    radial-gradient(800px 500px at 100% 100%, rgba(216,55,58,.12), transparent 60%),
+    var(--noche);
+  color: var(--papel);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.55;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+#estrellas {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 0;
+}
+
+/* ---------- Papel picado ---------- */
+.picado {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center;
+  padding-top: 10px;
+  overflow: hidden;
+}
+.picado::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 12px;
+  height: 2px; background: rgba(251,243,228,.55);
+}
+.picado svg {
+  flex: 0 0 auto; width: 74px; height: 92px;
+  margin: 0 3px;
+  transform-origin: 50% 0;
+  animation: viento 4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,.25));
+}
+.picado svg:nth-child(2n) { animation-delay: -1.3s; animation-duration: 4.6s; }
+.picado svg:nth-child(3n) { animation-delay: -2.4s; animation-duration: 3.7s; }
+@keyframes viento {
+  0%, 100% { transform: rotate(-2.5deg) skewX(-1deg); }
+  50%      { transform: rotate(2.5deg)  skewX(1deg); }
+}
+
+/* ---------- Contenedor ---------- */
+main {
+  position: relative; z-index: 1;
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 8px 20px 48px;
+  display: grid; gap: 40px;
+}
+
+/* ---------- Portada ---------- */
+.portada { text-align: center; padding-top: 18px; display: grid; gap: 14px; justify-items: center; }
+.antetitulo {
+  font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  font-size: 13px; color: var(--vela);
+}
+h1 {
+  margin: 0;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 100;
+  line-height: .92;
+  text-wrap: balance;
+}
+h1 .p {
+  display: block;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(64px, 17vw, 120px);
+  color: var(--papel);
+}
+h1 .i {
+  display: block;
+  font-weight: 900;
+  font-size: clamp(44px, 12vw, 84px);
+  letter-spacing: .06em;
+  color: var(--vela);
+  text-shadow: 0 0 28px rgba(244,195,90,.35);
+}
+.lema {
+  max-width: 34ch; margin: 6px 0 0;
+  font-size: 19px; color: var(--suave);
+  text-wrap: balance;
+}
+.cuenta {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 6px; padding: 8px 16px;
+  border: 1px solid var(--linea); border-radius: 999px;
+  background: rgba(244,195,90,.08);
+  font-weight: 600; font-size: 15px; color: var(--papel);
+  font-variant-numeric: tabular-nums;
+}
+.cuenta .punto { width: 8px; height: 8px; border-radius: 50%; background: var(--vela); box-shadow: 0 0 10px var(--vela); }
+
+/* ---------- Fecha destacada ---------- */
+.fecha {
+  display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center;
+  padding: 22px 24px;
+  border: 1px solid var(--linea); border-radius: 22px;
+  background: linear-gradient(135deg, rgba(24,58,47,.9), rgba(16,38,31,.9));
+}
+.calendario {
+  width: 92px; border-radius: 16px; overflow: hidden; text-align: center;
+  background: var(--papel); color: var(--tinta);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+.calendario .mes { background: var(--nochebuena); color: #fff; font-weight: 700; font-size: 13px; letter-spacing: .14em; padding: 5px 0; }
+.calendario .dia { font-family: var(--display); font-weight: 800; font-size: 46px; line-height: 1.1; padding-top: 2px; }
+.calendario .sem { font-size: 12px; font-weight: 600; letter-spacing: .1em; padding-bottom: 8px; color: #5b6b62; }
+.fecha h2 { margin: 0 0 2px; font-family: var(--display); font-weight: 700; font-size: 26px; line-height: 1.15; text-wrap: balance; }
+.fecha p { margin: 0 0 12px; color: var(--suave); }
+
+/* ---------- Detalles ---------- */
+.detalles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.dato {
+  padding: 20px; border-radius: 18px;
+  background: rgba(251,243,228,.05);
+  border: 1px solid rgba(251,243,228,.12);
+  display: grid; gap: 6px; align-content: start;
+}
+.dato .ico { width: 34px; height: 34px; color: var(--vela); }
+.dato h3 { margin: 4px 0 0; font-family: var(--display); font-weight: 700; font-size: 20px; }
+.dato p { margin: 0; color: var(--suave); font-size: 16px; }
+.dato .dir { color: var(--papel); font-weight: 500; }
+
+.boton-sec {
+  display: inline-flex; align-items: center; gap: 8px; justify-self: start;
+  margin-top: 8px; padding: 9px 14px; border-radius: 999px;
+  border: 1px solid var(--vela); color: var(--vela);
+  font: 600 15px/1 var(--body); text-decoration: none; background: transparent; cursor: pointer;
+}
+.boton-sec:hover { background: rgba(244,195,90,.12); }
+.boton-sec svg { width: 16px; height: 16px; }
+
+/* ---------- Confirmación ---------- */
+.rsvp {
+  position: relative;
+  background: var(--papel); color: var(--tinta);
+  border-radius: 26px;
+  padding: 30px 26px 28px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.rsvp::before {
+  /* listón rojo superior */
+  content: ""; position: absolute; left: 26px; right: 26px; top: 0; height: 6px;
+  background: repeating-linear-gradient(90deg, var(--nochebuena) 0 18px, #1f6b4a 18px 36px, var(--vela) 36px 54px);
+  border-radius: 0 0 6px 6px;
+}
+.rsvp h2 { margin: 6px 0 4px; font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1.1; text-wrap: balance; }
+.rsvp .intro { margin: 0 0 22px; color: #4c5c53; }
+
+form { display: grid; gap: 20px; }
+.campo { display: grid; gap: 8px; }
+.campo > label, .campo > .etq { font-weight: 600; font-size: 16px; }
+.campo .ayuda { font-size: 14px; color: #66766d; margin-top: -4px; }
+
+input[type="text"], textarea {
+  width: 100%; padding: 13px 15px;
+  font: 400 17px/1.4 var(--body); color: var(--tinta);
+  background: #fff; border: 1.5px solid #d9cdb8; border-radius: 12px;
+}
+textarea { min-height: 84px; resize: vertical; }
+input[type="text"]:focus, textarea:focus { outline: none; border-color: #1f6b4a; box-shadow: 0 0 0 3px rgba(31,107,74,.18); }
+
+.opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opcion input { position: absolute; opacity: 0; pointer-events: none; }
+.opcion span {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 54px; padding: 10px 12px; text-align: center;
+  border: 1.5px solid #d9cdb8; border-radius: 14px; background: #fff;
+  font-weight: 600; cursor: pointer; transition: all .15s ease;
+}
+.opcion input:checked + span { border-color: #1f6b4a; background: #1f6b4a; color: #fff; }
+.opcion input[value="no"]:checked + span { border-color: #7a3b3c; background: #7a3b3c; }
+.opcion input:focus-visible + span { box-shadow: 0 0 0 3px rgba(31,107,74,.35); }
+
+.contador { display: inline-flex; align-items: center; gap: 0; border: 1.5px solid #d9cdb8; border-radius: 14px; background: #fff; overflow: hidden; justify-self: start; }
+.contador button {
+  width: 52px; height: 52px; border: 0; background: transparent; cursor: pointer;
+  font: 600 24px/1 var(--body); color: #1f6b4a;
+}
+.contador button:hover:not(:disabled) { background: #f1ead9; }
+.contador button:disabled { color: #c3b9a6; cursor: default; }
+.contador output { min-width: 56px; text-align: center; font: 700 22px/1 var(--body); font-variant-numeric: tabular-nums; }
+
+.sugerencias { display: flex; flex-wrap: wrap; gap: 8px; }
+.sugerencias button {
+  padding: 7px 13px; border-radius: 999px;
+  border: 1px dashed #b9a98c; background: transparent; color: #4c5c53;
+  font: 500 14px/1.2 var(--body); cursor: pointer;
+}
+.sugerencias button:hover { border-style: solid; border-color: #1f6b4a; color: #1f6b4a; }
+
+.oculto { display: none !important; }
+.trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.enviar {
+  width: 100%; min-height: 56px; border: 0; border-radius: 16px;
+  background: var(--nochebuena); color: #fff;
+  font: 700 18px/1 var(--body); letter-spacing: .01em; cursor: pointer;
+  box-shadow: 0 10px 22px rgba(216,55,58,.3);
+  transition: transform .1s ease, background .15s ease;
+}
+.enviar:hover { background: #c22d31; }
+.enviar:active { transform: translateY(1px); }
+.enviar:disabled { opacity: .7; cursor: progress; }
+.error { margin: 0; padding: 10px 14px; border-radius: 10px; background: #fde6e6; color: #8a1f22; font-size: 15px; }
+
+.listo { text-align: center; display: grid; gap: 10px; justify-items: center; padding: 8px 0 4px; }
+.listo .sello {
+  width: 74px; height: 74px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: #1f6b4a; color: #fff; font-size: 34px;
+}
+.listo h2 { margin: 4px 0 0; }
+.listo p { margin: 0; color: #4c5c53; max-width: 36ch; }
+.listo .acciones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+.listo .boton-sec { border-color: #1f6b4a; color: #1f6b4a; }
+.listo .boton-sec:hover { background: rgba(31,107,74,.08); }
+.prueba { font-size: 13px !important; color: #8a6d1f !important; background: #fff5d6; padding: 6px 10px; border-radius: 8px; }
+
+footer { text-align: center; color: var(--suave); font-size: 14px; padding-bottom: 12px; }
+footer strong { color: var(--vela); font-weight: 600; }
+
+:focus-visible { outline: 3px solid var(--vela); outline-offset: 2px; }
+.rsvp :focus-visible { outline-color: #1f6b4a; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .detalles { grid-template-columns: 1fr; }
+  .fecha { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .fecha .boton-sec { justify-self: center; }
+  .rsvp { padding: 28px 18px 22px; border-radius: 22px; }
+  .rsvp::before { left: 18px; right: 18px; }
+  .picado svg { width: 56px; height: 70px; margin: 0 2px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .picado svg { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="estrellas" aria-hidden="true"></canvas>
+<div class="picado" id="picado" aria-hidden="true"></div>
+
+<main>
+  <header class="portada">
+    <div class="antetitulo">Te invitamos a la</div>
+    <h1><span class="p">Posada</span><span class="i">ISSSTE</span></h1>
+    <p class="lema">Vamos a pedir posada, romper la piñata y brindar con ponche por todo lo que sacamos adelante este año.</p>
+    <div class="cuenta" id="cuenta"><span class="punto"></span><span id="cuentaTexto">Viernes 11 de diciembre</span></div>
+  </header>
+
+  <section class="fecha" aria-label="Fecha y hora">
+    <div class="calendario" aria-hidden="true">
+      <div class="mes">DIC</div>
+      <div class="dia">11</div>
+      <div class="sem">VIERNES</div>
+    </div>
+    <div>
+      <h2>Viernes 11 de diciembre, 5:00 de la tarde</h2>
+      <p>Llega con tiempo para la letanía y la piñata.</p>
+      <a class="boton-sec" id="btnCalendario" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M12 14v4M10 16h4"/></svg>
+        Agregar a mi calendario
+      </a>
+    </div>
+  </section>
+
+  <section class="detalles" aria-label="Detalles">
+    <div class="dato">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+      <h3>Dónde</h3>
+      <p class="dir" id="direccion"></p>
+      <a class="boton-sec" id="btnMapa" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Cómo llegar
+      </a>
+    </div>
+    <div class="dato">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.3A5 5 0 0 1 21 19"/></svg>
+      <h3>Trae a quien quieras</h3>
+      <p>Puedes llegar con acompañante o con tu familia. Solo avísanos cuántos van para calcular comida y lugares.</p>
+    </div>
+    <div class="dato">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h12v6a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3"/></svg>
+      <h3>¿Llevas algo?</h3>
+      <p>Ponche, tamales, postre, refresco o desechables: anótalo al confirmar para que no se repita.</p>
+    </div>
+    <div class="dato">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l1.6 3.4L17 7l-3.4 1.6L12 12l-1.6-3.4L7 7l3.4-1.6z"/><path d="M12 12v10"/><path d="M8 22h8"/><path d="M5 15l7 3 7-3"/></svg>
+      <h3>Piñata, ponche y convivio</h3>
+      <p>Una tarde para celebrar con el equipo antes de cerrar el año.</p>
+    </div>
+  </section>
+
+  <section class="rsvp" id="confirmar" aria-labelledby="tituloRsvp">
+    <div id="bloqueForm">
+      <h2 id="tituloRsvp">Confirma tu asistencia</h2>
+      <p class="intro">Nos ayuda a saber cuántos somos. Toma menos de un minuto.</p>
+
+      <form id="formRsvp" novalidate>
+        <div class="campo">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="80" placeholder="Nombre y apellido" required>
+        </div>
+
+        <div class="campo" role="radiogroup" aria-labelledby="etqAsistencia">
+          <div class="etq" id="etqAsistencia">¿Vas a ir?</div>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" id="asisteSi" name="asistencia" value="si" checked><span>¡Sí, ahí estaré!</span></label>
+            <label class="opcion"><input type="radio" id="asisteNo" name="asistencia" value="no"><span>No podré ir</span></label>
+          </div>
+        </div>
+
+        <div class="campo" id="campoAcomp">
+          <div class="etq" id="etqAcomp">¿Cuántos acompañantes llevas?</div>
+          <div class="ayuda">Sin contarte a ti. Si vas solo, déjalo en 0.</div>
+          <div class="contador" role="group" aria-labelledby="etqAcomp">
+            <button type="button" id="menos" aria-label="Quitar un acompañante">−</button>
+            <output id="acompanantes" aria-live="polite">0</output>
+            <button type="button" id="mas" aria-label="Agregar un acompañante">+</button>
+          </div>
+        </div>
+
+        <div class="campo" id="campoLleva">
+          <label for="lleva">¿Vas a llevar algo? <span style="font-weight:400;color:#66766d">(opcional)</span></label>
+          <input type="text" id="lleva" name="lleva" maxlength="120" placeholder="Ej. una olla de ponche">
+          <div class="sugerencias" id="sugerencias">
+            <button type="button">Ponche</button>
+            <button type="button">Tamales</button>
+            <button type="button">Postre</button>
+            <button type="button">Refresco</button>
+            <button type="button">Desechables</button>
+            <button type="button">Aguinaldos</button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Mensaje <span style="font-weight:400;color:#66766d">(opcional)</span></label>
+          <textarea id="mensaje" name="mensaje" maxlength="300" placeholder="Algo que quieras decirnos"></textarea>
+        </div>
+
+        <div class="trampa" aria-hidden="true">
+          <label for="website">No llenar</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="error oculto" id="error" role="alert"></p>
+        <button class="enviar" type="submit" id="btnEnviar">Enviar confirmación</button>
+      </form>
+    </div>
+
+    <div class="listo oculto" id="bloqueListo" aria-live="polite">
+      <div class="sello" aria-hidden="true">✓</div>
+      <h2 id="listoTitulo">¡Listo!</h2>
+      <p id="listoTexto"></p>
+      <p class="prueba oculto" id="avisoPrueba">Modo de prueba: esta respuesta no se guardó porque la invitación aún no está conectada al Google Sheet.</p>
+      <div class="acciones">
+        <a class="boton-sec" id="btnCalendario2" href="#" target="_blank" rel="noopener">Agregar a mi calendario</a>
+        <button class="boton-sec" type="button" id="btnCambiar">Cambiar mi respuesta</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>Posada <strong>ISSSTE</strong> · Diciembre 2026</footer>
+</main>
+
+<script>
+/* =========================================================
+   CONFIGURACIÓN — lo único que tienes que editar
+   ========================================================= */
+const CONFIG = {
+  // Pega aquí la URL de tu Apps Script (termina en /exec). Mientras esté vacía, el formulario funciona en modo de prueba.
+  SCRIPT_URL: "",
+  // Domicilio que verán los invitados.
+  DIRECCION: "Isla Izaro 2870",
+  // Opcional: link de Google Maps (opcional, para que el botón lleve exacto a la casa). Si lo dejas vacío, se busca la dirección en Guadalajara.
+  MAPS_URL: "",
+  // Fecha y hora del evento (hora del centro de México).
+  INICIO: "2026-12-11T17:00:00-06:00",
+  FIN:    "2026-12-11T22:00:00-06:00",
+  MAX_ACOMPANANTES: 8
+};
+
+/* ---------- Datos del evento ---------- */
+const $ = (id) => document.getElementById(id);
+$("direccion").textContent = CONFIG.DIRECCION;
+const mapa = CONFIG.MAPS_URL || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.DIRECCION + ", Guadalajara, Jalisco");
+$("btnMapa").href = mapa;
+
+function fechaGCal(iso) {
+  return new Date(iso).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+}
+const gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+  + "&text=" + encodeURIComponent("Posada ISSSTE")
+  + "&dates=" + fechaGCal(CONFIG.INICIO) + "/" + fechaGCal(CONFIG.FIN)
+  + "&details=" + encodeURIComponent("Posada ISSSTE. ¡Te esperamos!")
+  + "&location=" + encodeURIComponent(CONFIG.DIRECCION);
+$("btnCalendario").href = gcal;
+$("btnCalendario2").href = gcal;
+
+/* ---------- Cuenta regresiva ---------- */
+function cuentaRegresiva() {
+  const inicio = new Date(CONFIG.INICIO);
+  const ahora = new Date();
+  const msDia = 86400000;
+  // Diferencia en días de calendario según la hora de México
+  const fmt = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Mexico_City", year: "numeric", month: "2-digit", day: "2-digit" });
+  const hoy = new Date(fmt.format(ahora) + "T00:00:00Z");
+  const dia = new Date(fmt.format(inicio) + "T00:00:00Z");
+  const dias = Math.round((dia - hoy) / msDia);
+  let texto;
+  if (dias > 1) texto = "Faltan " + dias + " días";
+  else if (dias === 1) texto = "¡Es mañana!";
+  else if (dias === 0) texto = ahora < inicio ? "¡Es hoy a las 5:00 pm!" : "¡Ya empezó la posada!";
+  else texto = "¡Gracias por venir!";
+  $("cuentaTexto").textContent = texto;
+}
+cuentaRegresiva();
+
+/* ---------- Formulario ---------- */
+let acomp = 0;
+const out = $("acompanantes");
+function pintarContador() {
+  out.textContent = acomp;
+  $("menos").disabled = acomp <= 0;
+  $("mas").disabled = acomp >= CONFIG.MAX_ACOMPANANTES;
+}
+$("menos").addEventListener("click", () => { acomp = Math.max(0, acomp - 1); pintarContador(); });
+$("mas").addEventListener("click", () => { acomp = Math.min(CONFIG.MAX_ACOMPANANTES, acomp + 1); pintarContador(); });
+pintarContador();
+
+function asiste() { return document.querySelector('input[name="asistencia"]:checked').value === "si"; }
+function pintarAsistencia() {
+  const si = asiste();
+  $("campoAcomp").classList.toggle("oculto", !si);
+  $("campoLleva").classList.toggle("oculto", !si);
+}
+document.querySelectorAll('input[name="asistencia"]').forEach(r => r.addEventListener("change", pintarAsistencia));
+
+$("sugerencias").addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  const campo = $("lleva");
+  const actual = campo.value.trim();
+  const valor = b.textContent;
+  if (actual.toLowerCase().includes(valor.toLowerCase())) return;
+  campo.value = actual ? actual + ", " + valor : valor;
+  campo.focus();
+});
+
+function mostrarError(msg) {
+  const el = $("error");
+  el.textContent = msg;
+  el.classList.toggle("oculto", !msg);
+}
+
+function primerNombre(n) { return n.trim().split(/\s+/)[0]; }
+
+$("formRsvp").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  mostrarError("");
+  const nombre = $("nombre").value.trim();
+  if (nombre.length < 2) {
+    mostrarError("Escribe tu nombre para saber quién confirma.");
+    $("nombre").focus();
+    return;
+  }
+  const si = asiste();
+  const datos = new URLSearchParams({
+    nombre,
+    asistencia: si ? "si" : "no",
+    acompanantes: si ? String(acomp) : "0",
+    lleva: si ? $("lleva").value.trim() : "",
+    mensaje: $("mensaje").value.trim(),
+    website: $("website").value
+  });
+
+  const btn = $("btnEnviar");
+  btn.disabled = true;
+  btn.textContent = "Enviando…";
+
+  let modoPrueba = !CONFIG.SCRIPT_URL;
+  try {
+    if (!modoPrueba) {
+      await fetch(CONFIG.SCRIPT_URL, { method: "POST", mode: "no-cors", body: datos });
+    } else {
+      await new Promise(r => setTimeout(r, 600));
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = "Enviar confirmación";
+    mostrarError("No se pudo enviar. Revisa tu conexión a internet e inténtalo de nuevo.");
+    return;
+  }
+
+  const nom = primerNombre(nombre);
+  if (si) {
+    const total = 1 + acomp;
+    $("listoTitulo").textContent = "¡Nos vemos, " + nom + "!";
+    $("listoTexto").textContent = "Tu asistencia quedó confirmada" + (acomp ? " con " + acomp + (acomp === 1 ? " acompañante" : " acompañantes") + " (" + total + " personas en total)" : "") + ". Te esperamos el viernes 11 de diciembre a las 5:00 pm.";
+    $("btnCalendario2").classList.remove("oculto");
+  } else {
+    $("listoTitulo").textContent = "Gracias por avisar, " + nom;
+    $("listoTexto").textContent = "Te vamos a extrañar. Si cambias de planes, puedes volver a confirmar aquí mismo.";
+    $("btnCalendario2").classList.add("oculto");
+  }
+  $("avisoPrueba").classList.toggle("oculto", !modoPrueba);
+  $("bloqueForm").classList.add("oculto");
+  $("bloqueListo").classList.remove("oculto");
+  $("confirmar").scrollIntoView({ behavior: "smooth", block: "start" });
+  btn.disabled = false;
+  btn.textContent = "Enviar confirmación";
+});
+
+$("btnCambiar").addEventListener("click", () => {
+  $("bloqueListo").classList.add("oculto");
+  $("bloqueForm").classList.remove("oculto");
+  $("nombre").focus();
+});
+
+/* ---------- Papel picado ---------- */
+(function papelPicado() {
+  const colores = ["#d8373a", "#f4c35a", "#1fa37a", "#ff5fa2", "#2f8fd8", "#ff8a2b", "#8b5cf6"];
+  const cont = $("picado");
+
+  function circulo(cx, cy, r) {
+    return `M${cx - r},${cy}a${r},${r} 0 1,0 ${2 * r},0a${r},${r} 0 1,0 ${-2 * r},0z`;
+  }
+  function rombo(cx, cy, s) {
+    return `M${cx},${cy - s}L${cx + s},${cy}L${cx},${cy + s}L${cx - s},${cy}z`;
+  }
+  function estrella(cx, cy, R, r, puntas) {
+    let d = "";
+    for (let i = 0; i < puntas * 2; i++) {
+      const rad = i % 2 ? r : R;
+      const a = Math.PI / puntas * i - Math.PI / 2;
+      d += (i ? "L" : "M") + (cx + rad * Math.cos(a)).toFixed(1) + "," + (cy + rad * Math.sin(a)).toFixed(1);
+    }
+    return d + "z";
+  }
+  function bandera(i) {
+    // contorno con flecos en zigzag
+    let d = "M0,0H100V108";
+    for (let x = 100; x > 0; x -= 10) d += `L${x - 5},116L${x - 10},108`;
+    d += "Z";
+    const motivo = i % 3;
+    if (motivo === 0) d += estrella(50, 54, 22, 9, 5);
+    if (motivo === 1) { d += circulo(50, 54, 8); for (let k = 0; k < 6; k++) { const a = k * Math.PI / 3; d += circulo(50 + 17 * Math.cos(a), 54 + 17 * Math.sin(a), 6); } }
+    if (motivo === 2) { d += rombo(50, 54, 20); d += rombo(50, 54, 9).replace(/^M/, "M"); }
+    // marco de pequeños calados
+    for (let x = 14; x <= 86; x += 12) { d += rombo(x, 16, 3.5); d += rombo(x, 94, 3.5); }
+    d += circulo(14, 54, 4) + circulo(86, 54, 4);
+    return `<svg viewBox="0 0 100 118" xmlns="http://www.w3.org/2000/svg"><path fill="${colores[i % colores.length]}" fill-rule="evenodd" d="${d}"/></svg>`;
+  }
+  function pintar() {
+    const ancho = window.innerWidth;
+    const anchoBandera = ancho < 560 ? 60 : 80;
+    const n = Math.ceil(ancho / anchoBandera) + 1;
+    let html = "";
+    for (let i = 0; i < n; i++) html += bandera(i);
+    cont.innerHTML = html;
+  }
+  pintar();
+  let t;
+  window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(pintar, 200); });
+})();
+
+/* ---------- Estrellas / nieve suave ---------- */
+(function cielo() {
+  const c = $("estrellas");
+  const ctx = c.getContext("2d");
+  const quieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let w, h, puntos = [];
+  function init() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = c.clientWidth; h = c.clientHeight;
+    c.width = w * dpr; c.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round((w * h) / 9000);
+    puntos = Array.from({ length: n }, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.6 + .4,
+      v: Math.random() * .35 + .1,
+      f: Math.random() * Math.PI * 2
+    }));
+  }
+  function frame(t) {
+    ctx.clearRect(0, 0, w, h);
+    for (const p of puntos) {
+      if (!quieto) { p.y += p.v; p.x += Math.sin((t / 1500) + p.f) * .2; if (p.y > h + 4) { p.y = -4; p.x = Math.random() * w; } }
+      const a = .35 + .35 * Math.sin((t / 900) + p.f);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(251,243,228,${a.toFixed(2)})`;
+      ctx.fill();
+    }
+    if (!quieto) requestAnimationFrame(frame);
+  }
+  init();
+  window.addEventListener("resize", init);
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
