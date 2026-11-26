@@ -196,6 +196,7 @@ h1 .i {
 .dato h3 { margin: 4px 0 0; font-family: var(--display); font-weight: 700; font-size: 20px; }
 .dato p { margin: 0; color: var(--suave); font-size: 16px; }
 .dato .dir { color: var(--papel); font-weight: 500; }
+.dato.ancho { grid-column: 1 / -1; }
 
 .boton-sec {
   display: inline-flex; align-items: center; gap: 8px; justify-self: start;
@@ -482,6 +483,11 @@ footer strong { color: var(--vela); font-weight: 600; }
       <h3>Piñata, ponche y convivio</h3>
       <p>Una tarde para celebrar con el equipo antes de cerrar el año.</p>
     </div>
+    <div class="dato ancho">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l-1.2 10.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M4 9h16"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+      <h3>Intercambio de bolos 🍬</h3>
+      <p>¡Habrá intercambio de dulces! Lleva tu bolo (bolsita con dulces) para intercambiarlo con los demás asistentes de la posada.</p>
+    </div>
   </section>
 
   <section class="rsvp" id="confirmar" aria-labelledby="tituloRsvp">
@@ -555,6 +561,10 @@ footer strong { color: var(--vela); font-weight: 600; }
     </div>
   </section>
 
+  <p style="text-align:center;margin:18px 0 0">
+    <a class="boton-sec" id="btnWhatsapp" href="#" target="_blank" rel="noopener" style="justify-self:center">Compartir por WhatsApp</a>
+  </p>
+
   <footer>Posada <strong>ISSSTE Áreas Críticas</strong> · Diciembre 2026</footer>
 </main>
 
@@ -567,6 +577,8 @@ const CONFIG = {
   SCRIPT_URL: "https://script.google.com/macros/library/d/17tepjUF4BRFAVxjn6Y8SZqXQsXpmSaUjSbkPsc3ZcaVN2y75TENN7snG/2",
   // Domicilio que verán los invitados.
   DIRECCION: "Isla Izaro 2870",
+  // Link público de la invitación (se usa en el texto de WhatsApp).
+  URL_INVITACION: "https://tomo930107-bit.github.io/posada_dic/",
   // Opcional: link de Google Maps (opcional, para que el botón lleve exacto a la casa). Si lo dejas vacío, se busca la dirección en Guadalajara.
   MAPS_URL: "https://maps.app.goo.gl/N22ZeD19sArFkckF9",
   // Fecha y hora del evento (hora del centro de México).
@@ -590,6 +602,17 @@ const gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
   + "&location=" + encodeURIComponent(CONFIG.DIRECCION);
 $("btnCalendario").href = gcal;
 $("btnCalendario2").href = gcal;
+
+/* ---------- Compartir por WhatsApp (texto genérico, editable) ---------- */
+const TEXTO_WHATSAPP =
+  "🎄 ¡Estás invitado/a a la Posada ISSSTE Áreas Críticas!\n\n" +
+  "📅 Viernes 11 de diciembre, 5:00 pm\n" +
+  "📍 " + CONFIG.DIRECCION + "\n" +
+  "🍬 Habrá intercambio de bolos: lleva tu bolo con dulces.\n" +
+  "🍻 Cada quien lleva lo que va a beber.\n\n" +
+  "Confirma tu asistencia antes del 3 de diciembre (23:59 hrs) aquí:\n" +
+  CONFIG.URL_INVITACION;
+$("btnWhatsapp").href = "https://wa.me/?text=" + encodeURIComponent(TEXTO_WHATSAPP);
 
 /* ---------- Cuenta regresiva ---------- */
 function cuentaRegresiva() {
